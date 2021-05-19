@@ -12,6 +12,7 @@ class Two_dimensional_array: public Matrix {
 public:
 	void In_Array(int N, ifstream& ifst);  //Функция ввода массива
 	void Out_Array(int N, ofstream& ofst); //Функция вывода массива
+	int Sum(int N); //Функция подсчет суммы элементов матрицы
 	Two_dimensional_array() {};
 };
 #endif //TWO_DIMENSIONAL_ARRAY_H

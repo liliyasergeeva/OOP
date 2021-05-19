@@ -14,6 +14,7 @@ public:
 	virtual void Out_Array(int N, ofstream& ofst) = 0; //Чисто вирутальная функция вывода матрицы,
                                               //она будет определена каждого класса массива
 	int Get_N(); //Функция получения размерности массива (общее значение)
+	virtual int Sum(int N) = 0;
 protected:
 	Matrix() {};
 };

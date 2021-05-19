@@ -31,3 +31,14 @@ void Diagonal_matrix::Out_Array(int N, ofstream& ofst)
         ofst << endl;
     }
 }
+
+int Diagonal_matrix::Sum(int N) {
+    int Sum = 0;
+
+    for (int i = 0; i < N; i++)
+    {
+        Sum += Array[i];
+    }
+
+    return Sum;
+}

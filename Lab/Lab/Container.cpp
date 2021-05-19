@@ -34,6 +34,8 @@ void Container::Out_Container(ofstream& ofst) {
     {
         ofst << i << ": ";
         Cont[i]->Out_Array(Cont[i]->Get_N(), ofst);
+
+        ofst << "Sum of matrix elements = " << Cont[i]->Sum(Cont[i]->Get_N()) << endl;
     }
 }
 
