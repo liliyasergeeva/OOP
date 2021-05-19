@@ -21,6 +21,8 @@ int main(int argc, char* argv[])
 
     ofst << "Filled container. " << endl;
 
+    C.Sort(); //Сортировка контейнера
+
     C.Out_Container(ofst); //Вывод контейнера
 
     C.Clear_Container();//Очистка контейнера

@@ -34,3 +34,8 @@ Matrix* Matrix::In_Matrix(ifstream& ifst) {
     
     return M;
 }
+
+bool Matrix::Compare(Matrix& Other)
+{
+    return Sum(N) > Other.Sum(Other.N);
+}
