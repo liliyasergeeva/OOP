@@ -11,7 +11,7 @@ class Diagonal_matrix: public Matrix {
 	int* Array; //Массива
 public:
 	void In_Array(int N, ifstream& ifst); //Функция ввода массива
-	void Out_Array(int N, ofstream& ofst); //Функция вывода массива
+	void Out_Array(Key_out K_o, int N, ofstream& ofst); //Функция вывода массива
 	Diagonal_matrix() {};
 };
 
