@@ -46,3 +46,13 @@ void Container::Clear_Container()
     
     Len = 0;
 }
+
+void Container::Out_Only_Two_Dim(ofstream& ofst) {
+    ofst << endl << "Only Two Dimensional arrays." << endl;
+
+    for (int i = 0; i < Len; i++)
+    {
+        ofst << i << ": ";
+        Cont[i]->Out_Only_Two_Dim(Cont[i]->Get_N(), ofst);
+    }
+}

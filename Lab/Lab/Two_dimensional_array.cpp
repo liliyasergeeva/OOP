@@ -32,3 +32,7 @@ void Two_dimensional_array::Out_Array(int N, ofstream& ofst)
         ofst << endl;
     }
 }
+
+void Two_dimensional_array::Out_Only_Two_Dim(int N, ofstream& ofst) {
+    Out_Array(N, ofst);
+}

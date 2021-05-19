@@ -23,6 +23,8 @@ int main(int argc, char* argv[])
 
     C.Out_Container(ofst); //Вывод контейнера
 
+    C.Out_Only_Two_Dim(ofst); //Вывод только обычного двумерного массива
+
     C.Clear_Container();//Очистка контейнера
 
     ofst << "Empty container. " << endl;

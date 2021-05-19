@@ -34,3 +34,7 @@ Matrix* Matrix::In_Matrix(ifstream& ifst) {
     
     return M;
 }
+
+void Matrix::Out_Only_Two_Dim(int N, ofstream& ofst) {
+    ofst << endl;
+}
