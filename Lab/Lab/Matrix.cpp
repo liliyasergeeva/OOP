@@ -1,6 +1,7 @@
 #include "Matrix.h"
 #include "Two_dimensional_array.h"
 #include "Diagonal_matrix.h"
+#include "Triangular_matrix.h"
 
 int Matrix::Get_N()
 {
@@ -22,6 +23,12 @@ Matrix* Matrix::In_Matrix(ifstream& ifst) {
     else if (K == 2)
     {
         M = new Diagonal_matrix; //Создаем диагональную матрицу
+
+        ifst >> M->N; //Cчитываем размерность массива
+    }
+    else if (K == 3)
+    {
+        M = new Triangular_matrix; //Создаем треугольную матрицу
 
         ifst >> M->N; //Cчитываем размерность массива
     }
