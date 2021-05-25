@@ -29,7 +29,7 @@ Matrix* Matrix::In_Matrix(ifstream& ifst) {
 
         if (Key_out == 1)
         {
-            M->K_o= BY_LINE;
+            M->K_o = BY_LINE;
         }
         else if (Key_out == 2)
         {
@@ -68,6 +68,23 @@ Matrix* Matrix::In_Matrix(ifstream& ifst) {
     else if (K == 3)
     {
         M = new Triangular_matrix; //Создаем треугольную матрицу
+
+        int Key_out = 0;
+
+        ifst >> Key_out;
+
+        if (Key_out == 1)
+        {
+            M->K_o = BY_LINE;
+        }
+        else if (Key_out == 2)
+        {
+            M->K_o = BY_COLUMN;
+        }
+        else if (Key_out == 3)
+        {
+            M->K_o = ONE_DIMENSIONAL;
+        }
 
         ifst >> M->N; //Cчитываем размерность массива
     }

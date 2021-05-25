@@ -18,11 +18,18 @@ void Triangular_matrix::In_Array(int N, ifstream& ifst)
     }
 }
 
-void Triangular_matrix::Out_Array(int N, ofstream& ofst)
+void Triangular_matrix::Out_Array(Key_out K_o, int N, ofstream& ofst)
 {
     ofst << "It's triangular matrix with dimension = " << N << endl;
 
-    int index = 0;
+    int Array_index = 0;
+
+    int** Temp_array = new int* [N];
+
+    for (int i = 0; i < N; i++)
+    {
+        Temp_array[i] = new int[N];
+    }
 
     for (int i = 0; i < N; i++)
     {
@@ -30,15 +37,47 @@ void Triangular_matrix::Out_Array(int N, ofstream& ofst)
         {
             if (i >= j)
             {
-                ofst << Array[index] << " ";
-                index++;
+                Temp_array[i][j] = Array[Array_index];
+                Array_index++;
             }
             else
             {
-                ofst << 0 << " ";
+                Temp_array[i][j] = 0;
             }
         }
+    }
 
+    if (K_o == BY_LINE)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
+                ofst << Temp_array[i][j] << " ";
+            }
+            ofst << endl;
+        }
+    }
+    else if (K_o == BY_COLUMN)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
+                ofst << Temp_array[j][i] << " ";
+            }
+            ofst << endl;
+        }
+    }
+    else if (K_o == ONE_DIMENSIONAL)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
+                ofst << Temp_array[i][j] << " ";
+            }
+        }
         ofst << endl;
     }
 }

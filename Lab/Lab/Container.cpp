@@ -33,7 +33,7 @@ void Container::Out_Container(ofstream& ofst) {
     for (int i = 0; i < Len; i++) 
     {
         ofst << i << ": ";
-        Cont[i]->Out_Array(Cont[i]->Get_N(), ofst);
+        Cont[i]->Out_Array(Cont[i]->Get_K_o(), Cont[i]->Get_N(), ofst);
 
         ofst << "Sum of matrix elements = " << Cont[i]->Sum(Cont[i]->Get_N()) << endl;
     }
