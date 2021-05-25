@@ -1,5 +1,7 @@
 ﻿  Container.cpp
   Diagonal_matrix.cpp
   Lab.cpp
+  Matrix.cpp
+  Triangular_matrix.cpp
   Создание кода...
   Lab.vcxproj -> C:\Users\of913\OneDrive\Рабочий стол\3_1_2_1_Git\OOP\Lab\Debug\Lab.exe

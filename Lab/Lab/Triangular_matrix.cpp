@@ -42,3 +42,21 @@ void Triangular_matrix::Out_Array(int N, ofstream& ofst)
         ofst << endl;
     }
 }
+
+int Triangular_matrix::Sum(int N) {
+    int Temp_N = N;
+    int Array_size = 0;
+
+    while (Temp_N) {
+        Array_size += Temp_N;
+        Temp_N--;
+    }
+
+    int Sum = 0;
+
+    for (int i = 0; i < Array_size; i++) {
+        Sum += Array[i];
+    }
+
+    return Sum;
+}
