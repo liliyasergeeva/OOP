@@ -15,6 +15,7 @@ public:
     void Out_Container(ofstream& ofst); //Функция вывода элементов контейнера
     void Clear_Container(); //Функция очистки контейнера
     void Sort(); //Функция сортировки контейнера
+    void Out_Only_Two_Dim(ofstream& ofst); //Функция вывода только обычного двумерного массива
     Container(); //Конструктор
     ~Container() { Clear_Container(); } //Деструктор контейнера
 };

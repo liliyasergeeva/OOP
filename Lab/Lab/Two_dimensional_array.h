@@ -13,6 +13,7 @@ public:
 	void In_Array(int N, ifstream& ifst);  //Функция ввода массива
 	void Out_Array(Key_out K_o, int N, ofstream& ofst); //Функция вывода массива
 	int Sum(int N); //Функция подсчет суммы элементов матрицы
+	void Out_Only_Two_Dim(Key_out K_o, int N, ofstream& ofst); //Функция вывода только обычного двумерного массива
 	Two_dimensional_array() {};
 };
 #endif //TWO_DIMENSIONAL_ARRAY_H
