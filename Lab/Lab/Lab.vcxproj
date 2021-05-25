@@ -143,12 +143,14 @@
     <ClCompile Include="Diagonal_matrix.cpp" />
     <ClCompile Include="Lab.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Triangular_matrix.cpp" />
     <ClCompile Include="Two_dimensional_array.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Container.h" />
     <ClInclude Include="Diagonal_matrix.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Triangular_matrix.h" />
     <ClInclude Include="Two_dimensional_array.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
