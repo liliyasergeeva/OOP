@@ -99,3 +99,12 @@ int Triangular_matrix::Sum(int N) {
 
     return Sum;
 }
+
+int* Triangular_matrix::Get_Array()
+{
+    return Array;
+}
+void Triangular_matrix::Set_Array(int* _Array)
+{
+    Array = _Array;
+}

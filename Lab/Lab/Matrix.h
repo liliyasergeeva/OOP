@@ -16,6 +16,10 @@ class Matrix {
 	int N;
 	Key_out K_o;
 public:
+	void Set_N(int _N);
+	
+	void Set_K_o(Key_out _K_o);
+
 	static Matrix* In_Matrix(ifstream& ifst); //Функция ввода матрицы
 	virtual void In_Array(int N, ifstream& ifst) = 0; //Чисто вирутальная функция ввода матрицы,
                                               //она будет определена каждого класса массива

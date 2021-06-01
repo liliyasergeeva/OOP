@@ -75,3 +75,12 @@ int Two_dimensional_array::Sum(int N) {
 void Two_dimensional_array::Out_Only_Two_Dim(Key_out K_o, int N, ofstream& ofst) {
     Out_Array(K_o, N, ofst);
 }
+
+int** Two_dimensional_array::Get_Array()
+{
+    return Array;
+}
+void Two_dimensional_array::Set_Array(int** _Array)
+{
+    Array = _Array;
+}

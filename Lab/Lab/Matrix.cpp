@@ -106,3 +106,13 @@ bool Matrix::Compare(Matrix& Other)
 void Matrix::Out_Only_Two_Dim(Key_out K_o, int N, ofstream& ofst) {
     ofst << endl;
 }
+
+void Matrix::Set_N(int _N)
+{
+    N = _N;
+}
+
+void Matrix::Set_K_o(Key_out _K_o)
+{
+    K_o = _K_o;
+}

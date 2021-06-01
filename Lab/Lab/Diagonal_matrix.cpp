@@ -102,3 +102,12 @@ int Diagonal_matrix::Sum(int N) {
 
     return Sum;
 }
+
+int* Diagonal_matrix::Get_Array()
+{
+    return Array;
+}
+void Diagonal_matrix::Set_Array(int* _Array)
+{
+    Array = _Array;
+}
