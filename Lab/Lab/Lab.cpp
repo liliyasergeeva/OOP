@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
     C.In_Container(ifst); //Записываем элементы в контейнер
 
-    ofst << "Filled container. " << endl;
+    ofst << "Filled and sorted container. " << endl;
 
     C.Sort(); //Сортировка контейнера
 

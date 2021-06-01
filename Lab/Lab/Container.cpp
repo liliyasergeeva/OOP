@@ -1,17 +1,15 @@
 #include "Container.h"
 
+#include "Container.h"
+
 Container::Container() : Len(0) {};
 
-void Container::In_Container(ifstream& ifst) 
-{
-    while (!ifst.eof()) 
-    {
-        if ((Cont[Len] = Matrix::In_Matrix(ifst)) != 0) //Считываем очередную матрицу
-        {
+void Container::In_Container(ifstream& ifst) {
+    while (!ifst.eof()) {
+        if ((Cont[Len] = Matrix::In_Matrix(ifst))) {
             Len++;
 
-            if (Len == Max_len) //Проверка на переполнение контейнера
-            {
+            if (Len == Max_len) {
                 break;
             }
         }
@@ -20,59 +18,56 @@ void Container::In_Container(ifstream& ifst)
 
 void Container::Out_Container(ofstream& ofst) {
     ofst << "Container contents " << Len
-        << " elements." << endl; //Выводим число элементов массива
+        << " elements." << endl << endl;
 
-    //Проверка на переполнение
-    if (Len == Max_len)
-    {
+    //Проверка заполнение контейнера до максимума
+    if (Len == Max_len) {
         ofst << endl << "Conteiner is full (" << Max_len << " elemets)!" << endl <<
             "It can't accommodate more elements." << endl;
     }
 
-    //Выводим номера матриц и сами эти матрицы
-    for (int i = 0; i < Len; i++) 
-    {
+    for (int i = 0; i < Len; i++) {
         ofst << i << ": ";
-        Cont[i]->Out_Array(Cont[i]->Get_K_o(), Cont[i]->Get_N(), ofst);
 
-        ofst << "Sum of matrix elements = " << Cont[i]->Sum(Cont[i]->Get_N()) << endl;
+        if (Cont[i]->Get_N() == -1) {
+            ofst << "Incorrect element!" << endl;
+        }
+        else {
+            Cont[i]->Out_Array(Cont[i]->Get_K_o(), Cont[i]->Get_N(), ofst);
+
+            ofst << "Sum of matrix elements = " << Cont[i]->Sum(Cont[i]->Get_N()) << endl << endl;
+        }
     }
 }
 
-void Container::Clear_Container() 
-{
-    for (int i = 0; i < Len; i++) 
-    {
-        delete Cont[i]; //Очищаем память, вылеленную для каждой матрицы
+void Container::Clear_Container() {
+    for (int i = 0; i < Len; i++) {
+        delete Cont[i];
     }
-    
+
     Len = 0;
 }
 
 void Container::Sort() {
-    if (Len > 1)
-    {
-        for (int i = 0; i < Len - 1; i++) 
-        { 
-            for (int j = i + 1; j < Len; j++) 
-            { 
-                if (Cont[i]->Compare((*Cont[j]))) 
-                { 
-                    Matrix* Temp = Cont[i]; 
-                    Cont[i] = Cont[j]; 
-                    Cont[j] = Temp; 
-                } 
-            } 
+    for (int i = 0; i < Len - 1; i++) {
+        for (int j = i + 1; j < Len; j++) {
+            if (Cont[i]->Get_N() != -1 && Cont[j]->Get_N() != -1) {
+                if (Cont[i]->Compare((*Cont[j]))) {
+                    Matrix* Temp = Cont[i];
+                    Cont[i] = Cont[j];
+                    Cont[j] = Temp;
+                }
+            }
         }
     }
 }
 
 void Container::Out_Only_Two_Dim(ofstream& ofst) {
-    ofst << endl << "Only Two Dimensional arrays." << endl;
+    ofst << "Only Two Dimensional arrays." << endl << endl;
 
-    for (int i = 0; i < Len; i++)
-    {
+    for (int i = 0; i < Len; i++) {
         ofst << i << ": ";
+
         Cont[i]->Out_Only_Two_Dim(Cont[i]->Get_K_o(), Cont[i]->Get_N(), ofst);
     }
 }

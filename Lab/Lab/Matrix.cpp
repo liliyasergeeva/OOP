@@ -17,9 +17,8 @@ Key_out Matrix::Get_K_o()
 }
 
 Matrix* Matrix::In_Matrix(ifstream& ifst) {
-    Matrix* M; //Создаем указатель на матрицу
+    Matrix* M = NULL; //Создаем указатель на матрицу
     string Temp_Str = "";
-    string Alph_num = "0123456789";
 
     getline(ifst, Temp_Str);
 
@@ -39,151 +38,58 @@ Matrix* Matrix::In_Matrix(ifstream& ifst) {
 
     int K = atoi(Temp_Str.c_str());
 
-    if (K == 1)
-    {
+    if (K == 1) {
         M = new Two_dimensional_array; //Создаем двумерный массив
-
-        getline(ifst, Temp_Str);
-
-        if (ifst.peek() == EOF) {
-            //Завершение программы с ошибкой
-            cout << "Input data is incomplete!";
-            exit(1);
-        }
-
-        if ((Temp_Str != "1") && (Temp_Str != "2") && (Temp_Str != "3"))
-        {
-            //Завершение программы с ошибкой
-            cout << "Input data is incorrect!";
-            exit(1);
-        }
-
-        int Key_out = atoi(Temp_Str.c_str());
-
-        if (Key_out == 1)
-        {
-            M->K_o = BY_LINE;
-        }
-        else if (Key_out == 2)
-        {
-            M->K_o = BY_COLUMN;
-        }
-        else if (Key_out == 3)
-        {
-            M->K_o = ONE_DIMENSIONAL;
-        }
-
-        getline(ifst, Temp_Str);
-
-        //Цикл проверки того, что строка содержит только цифры
-        for (int i = 0; i < Temp_Str.length(); i++) {
-            if (Alph_num.find(Temp_Str[i]) == -1) {
-                //Завершение программы с ошибкой
-                cout << "Input data is incorrect!";
-                exit(1);
-            }
-        }
-
-        M->N = atoi(Temp_Str.c_str()); //Записываем размерность матрицы
     }
     else if (K == 2)
     {
         M = new Diagonal_matrix; //Создаем диагональную матрицу
-
-        getline(ifst, Temp_Str);
-
-        if (ifst.peek() == EOF) {
-            //Завершение программы с ошибкой
-            cout << "Input data is incomplete!";
-            exit(1);
-        }
-
-        if ((Temp_Str != "1") && (Temp_Str != "2") && (Temp_Str != "3"))
-        {
-            //Завершение программы с ошибкой
-            cout << "Input data is incorrect!";
-            exit(1);
-        }
-
-        int Key_out = atoi(Temp_Str.c_str());
-
-        if (Key_out == 1)
-        {
-            M->K_o = BY_LINE;
-        }
-        else if (Key_out == 2)
-        {
-            M->K_o = BY_COLUMN;
-        }
-        else if (Key_out == 3)
-        {
-            M->K_o = ONE_DIMENSIONAL;
-        }
-
-        getline(ifst, Temp_Str);
-
-        //Цикл проверки того, что строка содержит только цифры
-        for (int i = 0; i < Temp_Str.length(); i++) {
-            if (Alph_num.find(Temp_Str[i]) == -1) {
-                //Завершение программы с ошибкой
-                cout << "Input data is incorrect!";
-                exit(1);
-            }
-        }
-
-        M->N = atoi(Temp_Str.c_str()); //Записываем размерность матрицы
     }
     else if (K == 3)
     {
         M = new Triangular_matrix; //Создаем треугольную матрицу
+    }
 
-        getline(ifst, Temp_Str);
+    getline(ifst, Temp_Str);
 
-        if (ifst.peek() == EOF) {
-            //Завершение программы с ошибкой
-            cout << "Input data is incomplete!";
-            exit(1);
-        }
+    if (ifst.peek() == EOF) {
+        //Завершение программы с ошибкой
+        cout << "Input data is incomplete!";
+        exit(1);
+    }
 
-        if ((Temp_Str != "1") && (Temp_Str != "2") && (Temp_Str != "3"))
-        {
+    if ((Temp_Str != "1") && (Temp_Str != "2") && (Temp_Str != "3")) {
+        //Завершение программы с ошибкой
+        cout << "Input data is incorrect!";
+        exit(1);
+    }
+
+    int Key_out = atoi(Temp_Str.c_str());
+
+    if (Key_out == 1) {
+        M->K_o = BY_LINE;
+    }
+    else if (Key_out == 2) {
+        M->K_o = BY_COLUMN;
+    }
+    else if (Key_out == 3) {
+        M->K_o = ONE_DIMENSIONAL;
+    }
+
+    getline(ifst, Temp_Str);
+
+    string Alph_num = "0123456789";
+
+    //Цикл проверки того, что строка содержит только цифры
+    for (int i = 0; i < Temp_Str.length(); i++) {
+        if (Alph_num.find(Temp_Str[i]) == -1) {
             //Завершение программы с ошибкой
             cout << "Input data is incorrect!";
             exit(1);
         }
-
-        int Key_out = atoi(Temp_Str.c_str());
-
-        if (Key_out == 1)
-        {
-            M->K_o = BY_LINE;
-        }
-        else if (Key_out == 2)
-        {
-            M->K_o = BY_COLUMN;
-        }
-        else if (Key_out == 3)
-        {
-            M->K_o = ONE_DIMENSIONAL;
-        }
-
-        getline(ifst, Temp_Str);
-
-        //Цикл проверки того, что строка содержит только цифры
-        for (int i = 0; i < Temp_Str.length(); i++) {
-            if (Alph_num.find(Temp_Str[i]) == -1) {
-                //Завершение программы с ошибкой
-                cout << "Input data is incorrect!";
-                exit(1);
-            }
-        }
-
-        M->N = atoi(Temp_Str.c_str()); //Записываем размерность матрицы
     }
-    else
-    {
-        return 0;
-    }
+
+    M->N = atoi(Temp_Str.c_str()); //Записываем размерность матрицы
 
     M->In_Array(M->N, ifst); //Считываем элементы матрицы
 
